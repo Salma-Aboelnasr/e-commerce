@@ -1,0 +1,19 @@
+.card{
+    button{
+        transform: translateY(120%);
+        transition: all 0.5s;
+        opacity: 0;
+    }
+    &:hover {
+        button{
+            transform: translateY(0%);
+            opacity: 1;
+        }
+    }
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}

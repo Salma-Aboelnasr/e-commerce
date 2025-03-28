@@ -1,0 +1,103 @@
+<nav class="fixed top-0 left-0 w-full z-50 bg-gray-100 border-b border-gray-200 dark:bg-gray-900">
+  <div class="max-w-screen-2xl  flex flex-wrap items-center justify-between mx-auto px-4 py-2">
+    <!-- Logo -->
+    <a routerLink="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="/images/freshcart-logo.svg" alt="logo" />
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-6 h-6"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="hidden w-full flex-grow md:flex md:items-center md:w-auto" id="navbar-default">
+      @if(isLogin()){
+      <ul class="font-semibold capitalize flex flex-col p-4 md:flex-row md:space-x-2 rtl:space-x-reverse items-center text-xl">
+        <li>
+          <a routerLink="/home" routerLinkActive="bg-green-600 text-white" class="block py-2 px-3 text-gray-600 rounded-md">
+            home
+          </a>
+        </li>
+        <li>
+          <a routerLink="/products" routerLinkActive="bg-green-600 text-white" class="block py-2 px-3 text-gray-600 rounded-md">
+            products
+          </a>
+        </li>
+        <li>
+          <a routerLink="/categories" routerLinkActive="bg-green-600 text-white" class="block py-2 px-3 text-gray-600 rounded-md">
+            categories
+          </a>
+        </li>
+        <li>
+          <a routerLink="/brands" routerLinkActive="bg-green-600 text-white" class="block py-2 px-3 text-gray-600 rounded-md">
+            brands
+          </a>
+        </li>
+      </ul>
+      }
+
+      <ul class="ms-auto font-semibold items-center capitalize text-xl flex flex-col p-4 md:flex-row md:space-x-0 rtl:space-x-reverse">
+        <li>
+          <a routerLink="" class="block py-2 px-2 text-gray-600 rounded-md">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a routerLink="" class="block py-2 px-2 text-gray-600 rounded-md">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a routerLink="" class="block py-2 px-2 text-gray-600 rounded-md">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        @if(!isLogin()){
+        <li>
+          <a routerLink="/login" routerLinkActive="bg-green-600 text-white" class="block py-2 px-2 text-gray-600 rounded-md">
+            Login
+          </a>
+        </li>
+        <li>
+          <a routerLink="/register" routerLinkActive="bg-green-600 text-white" class="block py-2 px-2 text-gray-600 rounded-md">
+            Register
+          </a>
+        </li>
+        }
+        @else {
+        <li>
+          <a routerLink="/cart" routerLinkActive="text-green-600" class="text-3xl block py-2 px-3 text-gray-600 rounded-md relative">
+            <i class="fas fa-cart-shopping"></i>
+            <span class="text-sm bg-green-500 text-white rounded-xl border-green-600 px-2 py-1 font-semibold absolute top-0 left-0">{{countCart}}</span>
+          </a>
+        </li>
+        <li>
+          <a role="button" class="block py-2 px-2 text-gray-600 rounded-md" (click)="logOut()">
+            LogOut
+          </a>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Include Flowbite JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
